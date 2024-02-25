@@ -1,0 +1,87 @@
+# Package Overview
+package_name: placement_model
+
+# Data Files
+training_data_file: Placement_Data_Full_Class.csv
+test_data_file: test.csv
+
+# Variables
+# The variable we are attempting to predict (Status)
+target: status
+
+pipeline_name: placement_model
+pipeline_save_file: placement_model_output_v
+
+features:      # final features to be use
+  - gender
+  - ssc_p
+  - ssc_b
+  - hsc_p
+  - hsc_b
+  - hsc_s
+  - degree_p
+  - degree_t
+  - workex
+  - etest_p
+  - specialisation
+  - mba_p
+
+unused_fields:  # Features to drop before pipeline
+  - sl_no
+  - salary
+
+
+# Features inside processing pipeline
+
+gender_var: gender 
+ssc_b_var: ssc_b
+hsc_b_var: hsc_b
+hsc_s_var: hsc_s
+degree_t_var: degree_t
+workex_var: workex
+specialisation_var: specialisation
+status_var: status
+
+gender_mappings:
+  F: 0
+  M: 1
+
+ssc_b_mappings:
+  Others: 0
+  Central: 1
+
+hsc_b_mappings:
+  Others: 0
+  Central: 1
+
+hsc_s_mappings:
+  Arts: 0
+  Science: 1
+  Commerce: 2
+
+degree_t_mappings:
+  Comm&Mgmt: 0
+  Sci&Tech: 1
+  Others: 2
+
+workex_mappings:
+  No: 0
+  Yes: 1
+
+specialisation_mappings:
+  Mkt&HR: 0
+  Mkt&Fin: 1
+
+status_mappings:
+  Placed: 1
+  Not Placed: 0
+
+  
+# set train/test split
+test_size: 0.20
+
+# to set the random seed
+random_state: 42
+# alogrithm parameters
+n_estimators: 200
+max_depth: 7
