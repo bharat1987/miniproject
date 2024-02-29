@@ -93,7 +93,7 @@ jobs:
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
       run: docker build . -f Dockerfile -t $DOCKER_USER/placement-fastapi:latest
-
+      
     - name: Push the Docker Image
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
